@@ -1,0 +1,27 @@
+{% load static %}
+
+PE html>
+ang="en">
+ta charset="UTF-8">
+ta http-equiv="X-UA-Compatible" content="IE=edge">
+ta name="viewport" content="width=device-width, initial-scale=1.0">
+tle>WorkShop Django</title>
+nk rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+nk rel="stylesheet" href="{% static 'css/estilo.css' %}">
+ript src="{% static 'js/bootstrap.min.js' %}"></script>
+ript src="{% static 'js/controlador.js' %}"></script>
+ class="container">
+<div class="row">
+    <div class="contenedor col-12 col-md-8 offset-md-2">
+        {% include 'includes/head.html' %}
+        {% include 'includes/nav.html' %}
+    
+        <div class="contenido">
+            {% block content %}
+        
+            {% endblock %}
+        </div>
+        {% include 'includes/footer.html' %}
+    </div>
+</div>
+iv>

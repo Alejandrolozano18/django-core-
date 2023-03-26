@@ -1,31 +1,40 @@
-<nav class="navbar navbar-expand-lg bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Menu:</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <svg class="navbar-toggler-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--color-text1)" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5.5z"/>
-        </svg>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">
-              <span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icontabler-home" width="30" height="30" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                  <polyline points="5 12 3 12 12 3 21 12 19 12"/>
-                  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"/>
-                  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"/>
-                </svg>
-              </span>
-              Inicio
-            </a>
-          </li>
-          <!-- Aquí se pueden agregar más elementos de la lista de navegación -->
-        </ul>
-      </div>
+nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Menu:</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <svg class="navbar-toggler-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--color-text1)" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5.5z"/>
+      </svg>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icontabler-home" width="30" height="30" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <polyline points="5 12 3 12 12 3 21 12 19 12"/>
+                <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"/>
+                <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"/>
+              </svg>
+            </span>
+            Inicio
+          </a>
+        </li>
+        <!-- Menú desplegable Categorias -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Categorias
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{% url 'categorias' %}">Categorias</a></li>
+            <!-- Aquí se pueden agregar más elementos de la lista de navegación del menú desplegable -->
+          </ul>
+        </li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
   {% if user.is_authenticated %}
   <li class="nav-item">
       <a class="nav-link" href="#">
@@ -55,7 +64,14 @@
             <path d="M17 17h-11v-14h-2"></path>
             <path d="M6 5l14 1l-1 7h-13"></path>
         </svg>
-        Carrito
+        <!-- En este bloque de código se crea un elemento de lista de navegación -->
+        <li class="nav-item">
+          <!-- Al hacer clic en el enlace se redirige al usuario a la página del carrito -->
+          <a class="nav-link" href="{% url 'carrito' %}">
+              <!-- Se muestra el texto "Carrito" como el contenido del enlace -->
+              Carrito
+          </a>
+        </li>
     </a>
   </li>
   <li class="nav-item dropdown">
@@ -135,7 +151,11 @@
                             <path d="M16 11h6m-3 -3v6"></path>
                         </svg>
                     </span>
-                    Registrarse
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'registro' %}">
+                          Registrarse
+                      </a>
+                  </li> 
                 </a>
             </li>
 
@@ -153,7 +173,41 @@
                     Ingresar
                 </a>
             </li>
-
+            <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="">Inicio</a> 
+              </li>          
+              {% if user.id is not None %}          
+              <!-- Se muestra esta sección si el usuario está autenticado -->
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Cambiar contraseña</a>
+              </li>
+              <li class="nav-item"> 
+                  <a class="nav-link" href="{% url 'carrito' %}"> Carrito </a> 
+              </li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Opciones
+                  </a>
+                  <!-- Menú desplegable de opciones para el usuario autenticado -->
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="{% url 'categorias' %}">Categorias</a></li>
+                  </ul>
+              </li>          
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'logout' %}">Salir </a>
+              </li>
+              {% else %}
+              <!-- Se muestra esta sección si el usuario no está autenticado -->
+              <li class="nav-item">
+                  <a class="nav-link" href="">Registrarse </a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'login' %}">Ingresar </a>
+              </li>
+              {% endif %}
+          </ul>
+          
                 
 
 

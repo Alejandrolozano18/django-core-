@@ -20,9 +20,9 @@ class ProductoAdmin(admin.ModelAdmin):
 # Registra el modelo Producto junto con la configuración de administración
 admin.site.register(Producto, ProductoAdmin)
 
-# # Define las columnas que se mostrarán en la lista de carros
-# class CarroAdmin(admin.ModelAdmin):
-#     list_display = ['usuario', 'producto', 'cantidad', 'estado']
+# Define las columnas que se mostrarán en la lista de carros
+class CarroAdmin(admin.ModelAdmin):
+    list_display = ['usuario', 'producto', 'cantidad', 'estado']
 
-# # Registra el modelo Carro junto con la configuración de administración
+# Registra el modelo Carro junto con la configuración de administración
 # admin.site.register(Carro, CarroAdmin)

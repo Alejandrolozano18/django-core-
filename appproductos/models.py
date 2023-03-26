@@ -1,4 +1,5 @@
 from django.db import models
+from appusuarios.models import Usuario
 
 class Categoria(models.Model):
     """
@@ -53,3 +54,25 @@ class Producto(models.Model):
             str: nombre del producto.
         """
         return self.nombre
+    
+class Carro(models.Model):
+    # Define las opciones de estado del producto
+    ESTADO_PROD =  (
+        ('activo', 'activo'),
+        ('comprado', 'comprado'),
+        ('anulado', 'anulado'),
+    )
+    # Relación con el modelo Usuario
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=False)
+
+    # Relación con el modelo Producto
+    producto = models.ForeignKey(Producto, on_delete=models.CASCADE, null=False)
+
+    # Cantidad de productos en el carro
+    cantidad = models.IntegerField(null=False, default=1)
+
+    # Valor unitario del producto
+    valUnit = models.DecimalField(max_digits=8, decimal_places=2)
+
+    # Estado del producto en el carro
+    estado = models.CharField(max_length=20, choices=ESTADO_PROD, default='activo')

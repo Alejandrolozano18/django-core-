@@ -48,7 +48,6 @@ class Usuario(AbstractBaseUser):
         ('admin', 'admin'),
         ('cliente', 'cliente'),
     )
-
     # Define los atributos del usuario.
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)

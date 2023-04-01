@@ -15,7 +15,7 @@ urlpatterns = [ # Se definen las URL's del sitio web y se asocian con las vistas
     # URL para eliminar un producto del carrito de compras
     path('eliminar/<str:id>', views.eliminarCarrito, name='eliminar'),
     # Vista para cambiar la cantidad de un producto en el carrito
-    path('cambiarCantidad/', views.cambiarCantidad),
+    path('cambiarCantidad/', views.cambiarCantidad,name=''),
     # Ruta para procesar pagos
     path('pagar/', views.pagarCarrito, name='pagar'),        
 ]

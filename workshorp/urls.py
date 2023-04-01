@@ -30,7 +30,5 @@ urlpatterns = [
     # Include appproductos URLs
     path('productos/', include('appproductos.urls')),
     # Include appusuarios URLs
-    path('usuario/', include('appusuarios.urls')), 
-       
-] 
-# + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  # Add static files URL pattern
+    path('usuario/', include('appusuarios.urls')),        
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  # Add static files URL pattern

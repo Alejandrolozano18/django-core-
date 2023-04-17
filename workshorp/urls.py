@@ -18,7 +18,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
-from django.conf.urls.static import static
+# from django.conf.urls.static import static
 from . import views
 
 # Define urlpatterns
@@ -31,4 +31,8 @@ urlpatterns = [
     path('productos/', include('appproductos.urls')),
     # Include appusuarios URLs
     path('usuario/', include('appusuarios.urls')),        
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  # Add static files URL pattern
+]
+# Add static files URL pattern
+if settings.DEBUG == True:
+    from django.conf.urls.static import static
+    urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  

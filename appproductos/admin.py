@@ -25,4 +25,4 @@ class CarroAdmin(admin.ModelAdmin):
     list_display = ['usuario', 'producto', 'cantidad', 'estado']
 
 # Registra el modelo Carro junto con la configuración de administración
-# admin.site.register(Carro, CarroAdmin)
+admin.site.register(Carro, CarroAdmin)

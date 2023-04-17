@@ -20,7 +20,7 @@
             <tbody> <!-- Inicia el cuerpo de la tabla -->
                 {% for prod in productos %} <!-- Inicia un bucle para iterar sobre la lista de productos que se pasa desde la vista -->
                 <tr> <!-- Inicia una fila de la tabla -->
-                    <td><img src="{{prod.imgPeque.url}}" alt="X"> </td> <!-- Crea una celda con una imagen del producto -->
+                    <td><img src="{{prod.imgPeque.url}}" alt="X"></td> <!-- Crea una celda con una imagen del producto -->
                     <td>{{prod.nombre}}</td> <!-- Crea una celda con el nombre del producto -->
                     <td>{{prod.descripcion}}</td> <!-- Crea una celda con la descripción del producto -->
                     <td>{{prod.precioUnitario}}</td> <!-- Crea una celda con el precio unitario del producto -->

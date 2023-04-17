@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'appproductos',
+    'appusuarios',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -68,7 +72,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'workshorp.wsgi.application'
-
+AUTH_USER_MODEL = 'appusuarios.Usuario'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
@@ -79,7 +83,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -98,8 +101,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
@@ -116,8 +117,28 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR,'/static')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR,'static'),
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_URL = '/media/' 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') 
+
+#**************************************** EMAIL *******************************************
+#Variable que almacena el servidor de correo saliente que se utilizará para enviar los correos electrónicos.
+EMAIL_HOST = 'jheisson.misena.edu.co'
+#Variable que almacena el puerto del servidor de correo saliente que se utilizará para enviar los correos electrónicos.
+EMAIL_PORT = 587
+#Variable que almacena la dirección de correo electrónico que se utilizará para enviar los correos electrónicos.
+EMAIL_HOST_USER = 'jheisson@misena.edu.co'
+#Variable que almacena la contraseña de la dirección de correo electrónico que se utilizará para enviar los correos electrónicos.
+# EMAIL_HOST_PASSWORD = 'dfrxmdcuhzoooozs'
+EMAIL_HOST_PASSWORD = 'zwtipocqbocuvcat'
+#Variable que indica si se utilizará el protocolo de seguridad TLS para enviar los correos electrónicos. En este caso, el valor es TRUE, lo que indica que se utilizará el protocolo TLS.
+EMAIL_USE_TLS = True 

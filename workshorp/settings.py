@@ -131,7 +131,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') 
 
 #**************************************** EMAIL *******************************************
-#Variable que almacena el servidor de correo saliente que se utilizará para enviar los correos electrónicos.
+# Variable que almacena el servidor de correo saliente que se utilizará para enviar los correos electrónicos.
 EMAIL_HOST = 'jheisson.misena.edu.co'
 #Variable que almacena el puerto del servidor de correo saliente que se utilizará para enviar los correos electrónicos.
 EMAIL_PORT = 587
